@@ -85,4 +85,29 @@ upload.fields([
 });
 
 const PORT = process.env.PORT || 3000;
+
+/* ================= HR ADMIN ACCESS ================= */
+
+// simple password protection
+const HR_PASSWORD = "panthadip123";
+
+app.use("/hr", (req, res, next) => {
+    const pass = req.query.key;
+    if(pass === HR_PASSWORD) next();
+    else res.send("Unauthorized");
+});
+
+// download excel
+app.get("/hr/download", (req, res) => {
+    const file = "applications.xlsx";
+    if(fs.existsSync(file))
+        res.download(file);
+    else
+        res.send("No applications yet");
+});
+
+// view uploaded files
+app.use("/hr/uploads", express.static("uploads"));
+
 app.listen(PORT, () => console.log("Server running"));
+
