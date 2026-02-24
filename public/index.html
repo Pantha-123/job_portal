@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Careers | TechNova Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>TechNova Solutions</h1>
+    <p>Software Engineer Hiring Portal</p>
+</div>
+
+<div class="container">
+
+<form id="jobForm">
+
+<h2>Personal Details</h2>
+
+<input id="name" placeholder="Full Name" required>
+<input id="email" type="email" placeholder="Email Address" required>
+<input id="phone" placeholder="Phone Number" required>
+
+<select id="position">
+<option>Frontend Developer</option>
+<option>Backend Developer</option>
+<option>Embedded Software Engineer</option>
+<option>AI/ML Engineer</option>
+</select>
+
+<input id="experience" placeholder="Years of Experience">
+<input id="skills" placeholder="Key Skills (C++, Python, Verilog, etc)">
+
+<hr>
+
+<h2>Identity Verification</h2>
+
+<h3>Live Photo</h3>
+<video id="video" autoplay></video>
+<button type="button" onclick="capturePhoto()">Capture</button>
+<canvas id="canvas" hidden></canvas>
+
+<h3>Voice Introduction (30 sec)</h3>
+<button type="button" onclick="startRecording()">Start</button>
+<button type="button" onclick="stopRecording()">Stop</button>
+
+<h3>Location Verification</h3>
+<button type="button" onclick="getLocation()">Verify Location</button>
+<p id="locationText"></p>
+
+<hr>
+
+<button type="submit" class="submitBtn">Submit Application</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
