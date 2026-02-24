@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const multer = require("multer");
 const bodyParser = require("body-parser");
@@ -97,6 +98,8 @@ app.use("/hr", (req, res, next) => {
     else res.send("Unauthorized");
 });
 
+app.use("/hr/uploads", express.static(path.join(__dirname, "uploads")));
+
 // download excel
 app.get("/hr/download", (req, res) => {
     const file = "applications.xlsx";
@@ -107,7 +110,7 @@ app.get("/hr/download", (req, res) => {
 });
 
 // view uploaded files
-app.use("/hr/uploads", express.static("uploads"));
+
 
 app.listen(PORT, () => console.log("Server running"));
 
